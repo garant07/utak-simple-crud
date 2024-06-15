@@ -35,15 +35,19 @@ const UpdateProductComponent = (props: IProduct) => {
   return (
     <Fragment>
       <Dialog
-        onClose={props.setOpen}
         open={props.open?.update}
         maxWidth="sm"
         fullWidth
+        sx={{ '& .MuiDialog-paper': { width: '80%', height: 485 } }}
       >
-        <form onSubmit={hooks.handleSubmit(hooks.handleFormSubmit)}>
-          <DialogTitle>Update Product</DialogTitle>
-          <DialogContent>
-            <Tabs value={hooks.valueTab} onChange={hooks.handleTabChange}>
+        <DialogTitle>Update Product</DialogTitle>
+        <DialogContent>
+          <form onSubmit={hooks.handleSubmit(hooks.handleFormSubmit)}>
+            <Tabs
+              value={hooks.valueTab}
+              onChange={hooks.handleTabChange}
+              sx={{ width: '550px', marginTop: '-70px' }}
+            >
               <Tab label="General" />
               <Tab label="Variants" />
             </Tabs>
@@ -67,27 +71,22 @@ const UpdateProductComponent = (props: IProduct) => {
                 )}
               />
               <Typography>Category:</Typography>
-              <Controller
+              <Select
+                size="small"
                 name="category"
-                control={hooks.control}
-                render={({ field }) => (
-                  <Select
-                    {...field}
-                    size="small"
-                    name="category"
-                    autoFocus
-                    fullWidth
-                    variant="outlined"
-                    sx={{
-                      marginBottom: '10px',
-                    }}
-                  >
-                    <MenuItem value={'Ten'}>Ten</MenuItem>
-                    <MenuItem value={'Twenty'}>Twenty</MenuItem>
-                    <MenuItem value={'Thirty'}>Thirty</MenuItem>
-                  </Select>
-                )}
-              />
+                autoFocus
+                fullWidth
+                variant="outlined"
+                sx={{
+                  marginBottom: '10px',
+                }}
+                value={hooks.category}
+                onChange={(evt) => hooks.setCategory(evt.target.value)}
+              >
+                <MenuItem value={'Alpha'}>Alpha</MenuItem>
+                <MenuItem value={'Beta'}>Beta</MenuItem>
+                <MenuItem value={'Gamma'}>Gamma</MenuItem>
+              </Select>
               <Grid container spacing={2}>
                 <Grid item xs={4}>
                   <Typography>Price:</Typography>
@@ -221,20 +220,20 @@ const UpdateProductComponent = (props: IProduct) => {
               ))}
               <Button onClick={hooks.handleAddVariant}>Add variants</Button>
             </CustomTabPanel>
-          </DialogContent>
-          <DialogActions>
-            <Button
-              variant="outlined"
-              color="error"
-              onClick={() => props.setOpen({ ...props.open, update: false })}
-            >
-              Cancel
-            </Button>
-            <Button variant="contained" type="submit">
-              Update
-            </Button>
-          </DialogActions>
-        </form>
+            <DialogActions>
+              <Button
+                variant="outlined"
+                color="error"
+                onClick={() => props.setOpen({ ...props.open, update: false })}
+              >
+                Cancel
+              </Button>
+              <Button variant="contained" type="submit">
+                Update
+              </Button>
+            </DialogActions>
+          </form>
+        </DialogContent>
       </Dialog>
     </Fragment>
   );

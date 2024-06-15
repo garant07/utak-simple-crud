@@ -8,6 +8,9 @@ const theme = createTheme({
         h4: {
           fontWeight: '720',
         },
+        h5: {
+          fontWeight: '720',
+        },
         root: {
           letterSpacing: '-0.11px',
           color: '#1D1D1C',
@@ -54,6 +57,15 @@ const theme = createTheme({
           letterSpacing: '-0.08px',
           fontFamily: 'Inter Variable, sans-serif',
           fontSize: '17px',
+        },
+      },
+    },
+    MuiTabs: {
+      styleOverrides: {
+        root: {
+          position: 'fixed',
+          backgroundColor: 'white',
+          zIndex: 900,
         },
       },
     },

@@ -24,6 +24,7 @@ export const useCreateProduct = (props: any) => {
   const dispatch = useAppDispatch();
   const [price, setPrice] = useState('');
   const [cost, setCost] = useState('');
+  const [category, setCategory] = useState('');
   const [variants, setVariants] = useState<Array<any>>(initialVariants);
   const [valueTab, setTabValue] = useState(0);
 
@@ -36,6 +37,10 @@ export const useCreateProduct = (props: any) => {
   useEffect(() => {
     setValue('cost', Number(cost));
   }, [cost]);
+
+  useEffect(() => {
+    setValue('category', category);
+  }, [category]);
 
   useEffect(() => {
     setValue('variants', variants);
@@ -146,7 +151,6 @@ export const useCreateProduct = (props: any) => {
   };
 
   const handleFormSubmit = async (data: any) => {
-    // console.log(data)
     const db = getDatabase(appFirebase);
     const newDocRef = push(ref(db, URL.products));
 
@@ -193,6 +197,8 @@ export const useCreateProduct = (props: any) => {
     setPrice,
     cost,
     setCost,
+    category,
+    setCategory,
     handleTabChange,
     valueTab,
     variants,

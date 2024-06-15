@@ -18,7 +18,7 @@ function CustomTabPanel(props: TabPanelProps) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 0, marginTop: '15px' }}>{children}</Box>
+        <Box sx={{ p: 0, marginTop: '65px' }}>{children}</Box>
       )}
     </div>
   );

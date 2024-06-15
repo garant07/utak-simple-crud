@@ -14,11 +14,11 @@ export const useProduct = () => {
   });
 
   useEffect(() => {
-      dispatch(
-        fetchProductData({
-          url: URL.products,
-        })
-      );
+    dispatch(
+      fetchProductData({
+        url: URL.products,
+      })
+    );
   }, []);
 
   return {
