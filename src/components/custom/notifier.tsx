@@ -48,7 +48,7 @@ const Notifier = () => {
               options.onClose(event, reason, myKey);
             }
           },
-          onExited: (event, myKey) => {
+          onExited: (_event, myKey) => {
             // remove this snackbar from redux store
             dispatch(removeSnackbar(myKey));
             removeDisplayed(myKey);

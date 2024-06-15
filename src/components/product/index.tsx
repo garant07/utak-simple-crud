@@ -3,7 +3,6 @@ import {
   Box,
   Typography,
   Button,
-  TextField,
   Paper,
   Link,
   Table,
@@ -13,9 +12,7 @@ import {
   TableContainer,
   TableHead,
 } from '@mui/material';
-import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
-import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import WrapperComponent from '../custom/wrapper-component';
 import { useProduct } from '../../hooks/useProduct';
 import { SkeletonTable } from '../custom/skeleton-table';
