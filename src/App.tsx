@@ -1,12 +1,11 @@
-import { Fragment } from 'react'
-import ProductComponent from './components/product'
+import { Fragment } from 'react';
+import ProductComponent from './components/product';
 function App() {
-
   return (
     <Fragment>
-      <ProductComponent/>
+      <ProductComponent />
     </Fragment>
-  )
+  );
 }
 
-export default App
+export default App;
